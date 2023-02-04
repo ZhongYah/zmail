@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h3>Zmail</h3>
+    <h3>mailbox</h3>
     <div class="legend">
-      <span>Double click to mark as read</span>
+      <span>Checkbox click to mark as read</span>
       <span>
         <span class="incomplete-box"></span> = Have read
       </span>
@@ -12,12 +12,12 @@
     </div>
     <div class="todos">
       <div
-        @dblclick="onDblClick(todo)"
         v-for="todo in allTodos"
         :key="todo.id"
         class="todo"
         v-bind:class="{'is-complete':todo.read}"
       >
+        <input type="checkbox" @click="haveRead(todo)">
         <span class="left">{{ todo.id + '.'}}</span>
         <span class="right">{{'(' + todo.email + ')'}}</span>
         <p>{{ todo.body.substring(0,70) + '.......'}}</p>
@@ -34,7 +34,7 @@ export default {
   name: "Todos",
   methods: {
     ...mapActions(["fetchTodos", "deleteTodo", "updateTodo"]),
-    onDblClick(todo) {
+    haveRead(todo) {
       const updTodo = {
         id: todo.id,
         email: todo.email,
@@ -54,6 +54,17 @@ export default {
 </script>
 
 <style scoped>
+/* * {
+  border: 1px solid black
+} */
+
+input[type="checkbox"] {
+  /* position: relative; */
+  
+  transform: scale(1.5);
+  position: absolute;
+  right:7px;
+}
 .left {
   position: absolute;
   left:5px;
@@ -120,6 +131,10 @@ i {
   width: 10px;
   height: 10px;
   background: #2d353d;
+}
+.fas fa-trash-alt{
+  position: absolute;
+  margin: 0 auto;
 }
 
 
