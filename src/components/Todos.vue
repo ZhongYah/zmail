@@ -88,6 +88,7 @@ p{
   display: block;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
+  opacity: 0.9;
 }
 
 .todo {
