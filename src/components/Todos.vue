@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>mailbox</h3>
+    <h3>Zeou-mailbox</h3>
     <div class="legend">
       <span>Checkbox click to mark as read</span>
       <span>

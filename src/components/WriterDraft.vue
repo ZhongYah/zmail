@@ -1,20 +1,20 @@
 <template>
   <div>
     <button  class="your-button-class" @click="showForm = !showForm">{{ showForm ? 'Hide' : 'Writting' }} Draft</button>
-    <form v-if="showForm" @submit.prevent="saveData">
+    <form v-if="showForm" @submit.prevent="saveData" >
       <div>
         <label for="email">Email:</label>
-        <input type="email" required v-model="email">
+        <input type="email" required v-model="email" :disabled="!isEditing">
       </div>
       <div>
         <label>
         Content:
-       <textarea class="text-input-class" v-model="content" maxlength="500" rows="5"></textarea>
+       <textarea class="text-input-class" v-model="content" maxlength="500" rows="5" :disabled="!isEditing"></textarea>
       </label>
       </div>
       <div>
-        <!-- <input type="submit" value="save" :class="{disabled: !isValid}" @click.prevent="saveData"> -->
-        <input type="submit" value="save" :class="{disabled: isValid}" >
+        <input type="submit" :value="buttonText"  @click="toggleEdit"/>
+
       </div>
     </form>
     <div v-if="submitted" >
@@ -33,15 +33,20 @@ export default {
       showForm: false,
       submitted: false,
       savedContent: '',
-      isValid: true
+      isEditing: true,
+      buttonText: 'Save'
     }
   },
   methods: {
     saveData() {
-            this.isValid = false
+            // this.isEditing = false
             this.submitted = true
             this.savedContent = this.content
-        }
+        },
+    toggleEdit() {
+      this.isEditing = !this.isEditing
+      this.buttonText = this.isEditing ? 'Save' : 'Edit'
+    }
     }
 }
 </script>
@@ -56,13 +61,13 @@ export default {
     flex-direction: column;
     width: 500px;
     position: absolute;
-    top:80px;
+    top:150px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background: rgb(158, 187, 135);
-    right: 150px;
+    right: 140px;
 }
 
   label {
@@ -80,13 +85,14 @@ export default {
   }
 
   input[type="submit"] {
-    background-color: rgb(46, 46, 101);
+    background-color: rgb(188, 62, 17);
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
+    transform: scale(0.8);
   }
 
   .your-button-class {
@@ -108,9 +114,9 @@ export default {
     display: block;
   }
 
-  button.disabled {
+  /* .disabled {
     pointer-events: none;
     opacity: 0.6;
-  }
+  } */
 
 </style>
