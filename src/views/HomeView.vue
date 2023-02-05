@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class="container">
-      <!-- <AddTodo/> -->
       <FilterTodos/>
       <Todos/>
       <WriterDraft/>
@@ -20,8 +19,6 @@ export default {
   components: {
     Todos,
     WriterDraft,
-
-    // AddTodo,
     FilterTodos
   }
 };
