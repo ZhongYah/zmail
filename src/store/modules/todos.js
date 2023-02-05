@@ -32,8 +32,9 @@ const actions = {
   },
   async filterTodos({ commit }, e) {
     // Get selected number
+    console.log(e);
     const limit = parseInt(
-      e.target.options[e.target.options.selectedIndex].innerText
+      parseInt(e.target.value)
     );
 
     const response = await axios.get(

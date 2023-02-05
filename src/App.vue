@@ -5,7 +5,7 @@
     <img src="./assets/email.png" alt="Image">
     </router-link> |
     <router-link to="/NextPage/:data">
-    Important mail
+    Scheduled 
     <img class="star" src="./assets/star.png" alt="Image">
     </router-link>
   </nav>

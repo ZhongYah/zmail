@@ -1,14 +1,7 @@
 <template>
   <div>
     Filter email:
-    <select @change="filterTodos($event)">
-      <option value="200">200</option>
-      <option value="100">100</option>
-      <option value="50">50</option>
-      <option value="20">20</option>
-      <option value="10">10</option>
-      <option value="5">5</option>
-    </select>
+    <input type="text"  @input="filterTodos" placeholder="Only number" />
   </div>
 </template>
 
@@ -23,9 +16,11 @@ export default {
 </script>
 
 <style scoped>
-select {
+input[type="text"]  {
   margin-top: 20px;
   padding: 6px;
   border: #41b883 1px solid;
+  border-radius: 5px;
 }
+
 </style>
