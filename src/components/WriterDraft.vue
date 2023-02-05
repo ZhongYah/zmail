@@ -9,7 +9,7 @@
       <div>
         <label>
         Content:
-       <textarea class="text-input-class" v-model="content" maxlength="500" rows="5" :disabled="!isEditing"></textarea>
+       <textarea class="text-input-class" v-model="content" maxlength="1000" rows="10" :disabled="!isEditing"></textarea>
       </label>
       </div>
       <div>
@@ -59,15 +59,16 @@ export default {
   form {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 450px;
+    height: 530px;
     position: absolute;
-    top:150px;
+    top:90px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background: rgb(158, 187, 135);
-    right: 140px;
+    right: 80px;
 }
 
   label {
@@ -93,6 +94,8 @@ export default {
     font-size: 18px;
     cursor: pointer;
     transform: scale(0.8);
+    position: relative;
+    bottom: -5px;
   }
 
   .your-button-class {
@@ -101,17 +104,19 @@ export default {
     padding: 10px 20px;
     border-radius: 5px;
     position: absolute;
-    top: 10px;
-    right: 5px;
+    top: 20px;
+    right: 15px;
   }
 
   .text-input-class {
     background-color: rgb(255, 255, 255);
     padding: 10px;
     border-radius: 5px;
-    width: 479px;
-    height: 300px;
+    width: 428px;
+    height: 390px;
     display: block;
+    font-size: 16px;
+
   }
 
   /* .disabled {

@@ -20,10 +20,15 @@
         <input type="checkbox" @click="haveRead(todo)">
         <span class="left">{{ todo.id + '.'}}</span>
         <span class="right">{{'(' + todo.email + ')'}}</span>
-        <p>{{ todo.body.substring(0,70) + '.......'}}</p>
+
+        <router-link :to="{name:'Details',params:{id:todo.id}}" rel="stylesheet" type="text/css" href="reset.css">
+          <p>{{ todo.body.substring(0,70) + '.......'}}</p>
+        </router-link>
+
         <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -81,8 +86,11 @@ input[type="checkbox"] {
   color: rgb(159, 94, 94);
 }
 p{
+  width: 1000px;
   position: relative;
-  left:120px;
+  left:300px;
+  font-size: 20px;
+  color:rgb(32, 90, 185)
 };
 .todos {
   display: block;
@@ -118,26 +126,33 @@ i {
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
+  font-size: 18px;
 }
 
 .complete-box {
+  position: relative;
+  top:3px;
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: #d3d3e4;;
 }
 
 .incomplete-box {
+  position: relative;
+  top:3px;
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: #2d353d;
 }
 .fas fa-trash-alt{
   position: absolute;
   margin: 0 auto;
 }
-
+a {
+  text-decoration: none;
+}
 
 
 @media (max-width: 500px) {
