@@ -1,21 +1,18 @@
 <template>
-  <nav>
-    <router-link to="/" >
-    Inbox
-    <img src="./assets/email.png" alt="Image">
-    </router-link> |
-    <router-link to="/NextPage/:data">
-    Schedule 
-    <img class="star" src="./assets/star.png" alt="Image">
-    </router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <nav>
+      <router-link to="/" >
+        Inbox
+        <img src="./assets/email2.png" alt="Image">
+      </router-link> 
+    </nav>
+  </div>
+<router-view/>
 </template>
 
 <script>
-
 export default {
-  name: "home",
+  name: "app",
   components: { }
 };
 </script>
@@ -37,6 +34,7 @@ nav a {
   font-weight: bold;
   color: #2c3e50;
   text-decoration: none;
+  font-size: 30px;
 
 }
 
@@ -44,10 +42,14 @@ nav a.router-link-exact-active {
   color: #2146db;
   text-decoration: none;
 }
+
 img{
-  width: 20px;
+  width: 30px;
   height: auto;
+  position: relative;
+  top:3px;
 }
+
 .star{
   width: 20px;
   height: auto;

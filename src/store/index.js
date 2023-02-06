@@ -1,9 +1,8 @@
 import { createStore } from 'vuex'
-import todos from './modules/todos';
-
+import rud from './modules/rud';
 
 export default createStore({
   modules: {
-    todos
+    rud
   }
 })
