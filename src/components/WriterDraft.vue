@@ -10,6 +10,7 @@
         <label>
           Content:
           <textarea class="contentInput" v-model="content" maxlength="1000" rows="10" :disabled="!isEditing"></textarea>
+          <!-- “v-model”指令用於將表單輸入元素的值綁定到 Vue 實例中的數據屬性。 -->
         </label>
       </div>
       <div>

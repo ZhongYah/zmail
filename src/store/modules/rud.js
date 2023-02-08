@@ -9,7 +9,7 @@ const getters = {
 };
 
 const actions = {
-  async fetchPosts({ commit }) {
+  async fetchPosts({ commit }) {       //fetch API               
     const response = await axios.get(
       'https://jsonplaceholder.typicode.com/comments'
     );
@@ -17,13 +17,13 @@ const actions = {
     commit('setPosts', response.data);
   },
   
-  async deletePost({ commit }, id) {
+  async deletePost({ commit }, id) {   //delete API data according to id 
     await axios.delete(`https://jsonplaceholder.typicode.com/comments/${id}`);
 
     commit('removePost', id);
   },
   
-  async filterPosts({ commit }, e) {
+  async filterPosts({ commit }, e) {   //filter API data according to e (keyboard key in value)
     // Get search number
     console.log(e);
     const limit = parseInt(
@@ -37,7 +37,7 @@ const actions = {
     commit('setPosts', response.data);
   },
 
-  async updatePost({ commit }, updJob) {
+  async updatePost({ commit }, updJob) {  //update API data  
     const response = await axios.put(
       `https://jsonplaceholder.typicode.com/comments/${updJob.id}`,
       updJob
@@ -60,7 +60,6 @@ const mutations = {
     }
   }
 };
-
 
 export default {
   state,

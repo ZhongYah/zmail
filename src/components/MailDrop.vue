@@ -20,21 +20,23 @@
       </span>
     </div>
     <div class="demo">
+      <!-- 從最新狀態的數據中透過id抓取資料 -->
       <div
-        v-for="job in allPosts"
+        v-for="job in allPosts"  
         :key="job.id"
         class="infrom"
         v-bind:class="{'is-read':job.read}"
       >
-        <input type="checkbox" @click="haveRead(job)">
+        <input type="checkbox" @click="haveRead(job)">  
         <span class="number">{{ job.id + '.'}}</span>
         <span class="person">{{'(' + job.email + ')'}}</span>
 
         <router-link :to="{name:'Details',params:{id:job.id}}" rel="stylesheet" type="text/css" href="reset.css">
-          <p>{{ job.body.substring(0,70) + '.......'}}</p>
+          <p>{{ job.body.substring(0,70) + '.......'}}</p>  
         </router-link>
-
+        <!-- 利用router-link跳轉至Details -->
         <i @click="deletePost(job.id)" class="fas fa-trash-alt"></i>
+        <!-- 根據勾選的checkbox的資料id做刪除 -->
       </div>
     </div>
 
@@ -56,11 +58,11 @@ export default {
         read: !job.read,
       };
 
-      this.updatePost(updJob);
+      this.updatePost(updJob);  //更新資料
     },
    
   },
-  computed: mapGetters(["allPosts"]),
+  computed: mapGetters(["allPosts"]),  //取得最新生成的資料
   created() {
     this.fetchPosts();
   }

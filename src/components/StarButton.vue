@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     changeColor() {
-    this.color = this.color === 'white' ? '#fcc500' : 'white';
+    this.color = this.color === 'white' ? '#fcc500' : 'white'; 
     },
   },
 };

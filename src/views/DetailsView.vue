@@ -2,14 +2,14 @@
   <div>
     <StarButton />
   </div>
-  <router-link to="/" >
+  <router-link to="/" > 
     <h1>
       <img src="../assets/email.png" alt="Image">
       Zmail
     </h1>
   </router-link> 
   <div class="detail">
-    <div v-if="error">{{ error }}</div>
+    <div v-if="error">{{ error }}</div>  
     <div v-if="post" class="post">
       <hr><h4>{{ 'name: ' + post.name }}</h4><hr>
       <h4>{{ 'email: ' + '(' + post.email + ')' }}</h4><hr>
@@ -32,7 +32,7 @@ export default {
     const post=ref(null)
     const error = ref(null)
 
-    const load = async () => {
+    const load = async () => {     
         try {
             let data = await fetch(`https://jsonplaceholder.typicode.com/comments/${id}`)
             if (!data.ok) {
